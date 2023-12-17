@@ -70,6 +70,18 @@ let paintGrid = () => {
 
 }
 
+let deleteGrid = () => {
+
+    //Thanks to https://www.geeksforgeeks.org/remove-all-the-child-elements-of-a-dom-node-in-javascript/#using-innerhtml-property for the code
+    let child = grid.lastElementChild
+
+    while (child) {
+        grid.removeChild(child);
+        child = grid.lastElementChild;
+    }
+
+}
+
 let changeGrid = () => {
 
     let gridChanger = document.querySelector('.changeGrid');
@@ -88,10 +100,10 @@ let changeGrid = () => {
         }
 
         else{
+            deleteGrid();
             makeGrid(numberRows,numberColumns);
-            gridChanger.innerText = `Click me to change the grid !! (Up to 100x100) currently: ${numberRows} x ${numberColumns}`
-
             paintGrid();
+            gridChanger.innerText = `Click me to change the grid !! (Up to 100x100) currently: ${numberRows} x ${numberColumns}`
         }
 
     });
