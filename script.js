@@ -22,7 +22,7 @@ let makeGrid = (rows = 16, columns = 16) => {
 
 }
 
-let fillGrid = () => {
+let paintGrid = () => {
 
 //A lot of thanks to zhirzh on a stackoverflow article for his code snipped which helped me in the following code, Marcus, you wont be forgotten
 
@@ -70,24 +70,26 @@ let fillGrid = () => {
 
 }
 
-let changeGrid = document.querySelector('.changeGrid');
+let gridChanger = document.querySelector('.changeGrid');
 
-changeGrid.addEventListener("click", () => {
+gridChanger.addEventListener("click", () => {
     
     let numberRows = +prompt("Introduce the number of rows");
     let numberColumns = +prompt("Introduce the number of columns");
 
     if((numberRows > 100 || numberColumns > 100) || (numberRows <= 0 || numberColumns <= 0)){
-        alert("Incorrect number !!")
+        alert("Incorrect number !!");
     }
+
     else if(isNaN(numberRows) || isNaN(numberColumns)){
         alert("You did not introduce a number !!")
     }
+
     else{
         makeGrid(numberRows,numberColumns);
-        changeGrid.innerText += ` ${numberRows} x ${numberColumns}`
+        gridChanger.innerText = `Click me to change the grid !! (Up to 100x100) currently: ${numberRows} x ${numberColumns}`
 
-        fillGrid();
+        paintGrid();
     }
 
 });
