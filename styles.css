@@ -13,12 +13,14 @@ body{
 }
 
 .row{
+    border: 1px solid black;
     flex: 1;
     flex-direction: row;
     display: flex;
 }
 
 .column {
+    border: 1px solid black;
     flex: 1;
 }
 

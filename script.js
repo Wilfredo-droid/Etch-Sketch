@@ -1,20 +1,24 @@
 let grid = document.querySelector("#grid");
 
-for(let i = 0; i < 16; i++){
+let makeGrid = (rows = 16, columns = 16) => {
 
-    let row = document.createElement('div');
-    row.classList.add("row");
+    for(let i = 0; i < rows; i++){
 
-    for(let j = 0; j < 16; j++){
-        let column = document.createElement('div');
-
-        column.classList.add("column");
-
-        row.appendChild(column);
-
+        let row = document.createElement('div');
+        row.classList.add("row");
+    
+        for(let j = 0; j < columns; j++){
+            let column = document.createElement('div');
+    
+            column.classList.add("column");
+    
+            row.appendChild(column);
+    
+        }
+    
+        grid.appendChild(row);
+    
     }
-
-    grid.appendChild(row);
 
 }
 
@@ -61,3 +65,21 @@ columns.forEach(column => {
 });
 
 let changeGrid = document.querySelector('.changeGrid');
+
+changeGrid.addEventListener("click", () => {
+    
+    let numberRows = +prompt("Introduce the number of rows");
+    let numberColumns = +prompt("Introduce the number of columns");
+
+    if((numberRows > 100 || numberColumns > 100) || (numberRows <= 0 || numberColumns <= 0)){
+        alert("Incorrect number !!")
+    }
+    else if(isNaN(numberRows) || isNaN(numberColumns)){
+        alert("You did not introduce a number !!")
+    }
+    else{
+        makeGrid(numberRows,numberColumns);
+        changeGrid.innerText += ` ${numberRows} x ${numberColumns}`
+    }
+
+});
