@@ -31,6 +31,14 @@ grid.addEventListener("mousedown", () => {
     isHolding = true;
 });
 
+grid.addEventListener("dragstart", (e) => {
+    e.preventDefault();
+})
+
+grid.addEventListener("drop", (e) => {
+    e.preventDefault();
+})
+
 let columns = document.querySelectorAll(".column");
 
 columns.forEach(column => {
