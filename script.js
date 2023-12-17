@@ -18,11 +18,35 @@ for(let i = 0; i < 16; i++){
 
 }
 
+//A lot of thanks to zhirzh on a stackoverflow article for his code snipped which helped me in the following code, Marcus, you wont be forgotten
+
+/*https://stackoverflow.com/questions/48593312/javascript-event-when-mouseover-and-mousedown*/
+
+
+/*The shared state variable managing to keep the three event listeners together, without it, the three event listeners would work independently and not work */
+let isHolding = false;
+
+//The mouse down has to be on the grid instead of the columns
+grid.addEventListener("mousedown", () => {
+    isHolding = true;
+});
+
 let columns = document.querySelectorAll(".column");
 
 columns.forEach(column => {
 
 
+    column.addEventListener("mouseenter", () => {
+        
+        if(isHolding === true){
+            column.style.backgroundColor = "black";
+        }
+
+    })
+
+    column.addEventListener("mouseup", () => {
+        isHolding = false;
+    })
 
 
 });
