@@ -31,6 +31,7 @@ grid.addEventListener("mousedown", () => {
     isHolding = true;
 });
 
+//Thanks to Borislav Hadzhiev for the following code on their blogpost https://bobbyhadz.com/blog/disable-drag-and-drop-in-javascript
 grid.addEventListener("dragstart", (e) => {
     e.preventDefault();
 })
