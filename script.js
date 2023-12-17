@@ -22,10 +22,6 @@ let columns = document.querySelectorAll(".column");
 
 columns.forEach(column => {
 
-//Thanks to Scott Marcus on stack overflow for part of the code in the following snippet
-
-/*https://stackoverflow.com/questions/41304737/why-onmousedown-event-occur-once-how-to-handle-mouse-hold-event*/ 
-
 
 
 
