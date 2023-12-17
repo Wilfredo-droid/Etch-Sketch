@@ -70,26 +70,30 @@ let paintGrid = () => {
 
 }
 
-let gridChanger = document.querySelector('.changeGrid');
+let changeGrid = () => {
 
-gridChanger.addEventListener("click", () => {
-    
-    let numberRows = +prompt("Introduce the number of rows");
-    let numberColumns = +prompt("Introduce the number of columns");
+    let gridChanger = document.querySelector('.changeGrid');
 
-    if((numberRows > 100 || numberColumns > 100) || (numberRows <= 0 || numberColumns <= 0)){
-        alert("Incorrect number !!");
-    }
+    gridChanger.addEventListener("click", () => {
+        
+        let numberRows = +prompt("Introduce the number of rows");
+        let numberColumns = +prompt("Introduce the number of columns");
 
-    else if(isNaN(numberRows) || isNaN(numberColumns)){
-        alert("You did not introduce a number !!")
-    }
+        if((numberRows > 100 || numberColumns > 100) || (numberRows <= 0 || numberColumns <= 0)){
+            alert("Incorrect number !!");
+        }
 
-    else{
-        makeGrid(numberRows,numberColumns);
-        gridChanger.innerText = `Click me to change the grid !! (Up to 100x100) currently: ${numberRows} x ${numberColumns}`
+        else if(isNaN(numberRows) || isNaN(numberColumns)){
+            alert("You did not introduce a number !!")
+        }
 
-        paintGrid();
-    }
+        else{
+            makeGrid(numberRows,numberColumns);
+            gridChanger.innerText = `Click me to change the grid !! (Up to 100x100) currently: ${numberRows} x ${numberColumns}`
 
-});
+            paintGrid();
+        }
+
+    });
+
+}
