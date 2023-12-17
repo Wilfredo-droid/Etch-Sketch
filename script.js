@@ -59,3 +59,5 @@ columns.forEach(column => {
 
 
 });
+
+let changeGrid = document.querySelector('.changeGrid');
