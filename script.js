@@ -1,6 +1,6 @@
 let grid = document.querySelector("#grid");
 
-let makeGrid = (rows = 16, columns = 16) => {
+let makeGrid = (rows, columns) => {
 
     for(let i = 0; i < rows; i++){
 
@@ -109,3 +109,5 @@ let changeGrid = () => {
     });
 
 }
+
+changeGrid();
